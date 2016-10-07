@@ -1,2 +1,3 @@
-# sirius
-Sirius - a lightweight web framework
+# Sirius
+
+Sirius - a lightweight web framework.
