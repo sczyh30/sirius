@@ -3,12 +3,12 @@ configure(allprojects) { project ->
   apply plugin: 'java'
   apply plugin: 'idea'
 
-  group 'io.sczyh30.sirsus'
+  group 'io.sczyh30.sirius'
   version '0.1-SNAPSHOT'
 
   ext {
     assertjVersion = "3.6.1"
-    nettyVersion = "4.1.6.Final"
+    nettyVersion = "4.1.7.Final"
   }
 
   repositories {
@@ -34,33 +34,33 @@ configure(allprojects) { project ->
   }
 }
 
-project("sirsus-core") {
+project("sirius-core") {
   dependencies {
     compile group: 'io.netty', name: 'netty-all', version: nettyVersion
   }
 }
 
-project("sirsus-web") {
+project("sirius-web") {
   dependencies {
-    compile(project(":sirsus-core"))
+    compile(project(":sirius-core"))
   }
 }
 
-project("sirsus-rpc") {
+project("sirius-rpc") {
   dependencies {
-    compile(project(":sirsus-core"))
+    compile(project(":sirius-core"))
   }
 }
 
-project("sirsus-service-discovery") {
+project("sirius-service-discovery") {
   dependencies {
-    compile(project(":sirsus-core"))
+    compile(project(":sirius-core"))
   }
 }
 
-project("sirsus-circuit-breaker") {
+project("sirius-circuit-breaker") {
   dependencies {
-    compile(project(":sirsus-core"))
+    compile(project(":sirius-core"))
   }
 }
 

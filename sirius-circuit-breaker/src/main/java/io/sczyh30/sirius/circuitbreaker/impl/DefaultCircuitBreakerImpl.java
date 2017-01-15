@@ -1,6 +1,6 @@
-package io.sczyh30.sirsus.circuitbreaker.impl;
+package io.sczyh30.sirius.circuitbreaker.impl;
 
-import io.sczyh30.sirsus.circuitbreaker.CircuitBreaker;
+import io.sczyh30.sirius.circuitbreaker.CircuitBreaker;
 
 /**
  * Default implementation of {@link CircuitBreaker}.

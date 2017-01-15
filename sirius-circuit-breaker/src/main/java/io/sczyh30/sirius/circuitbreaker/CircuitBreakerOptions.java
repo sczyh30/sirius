@@ -1,4 +1,4 @@
-package io.sczyh30.sirsus.circuitbreaker;
+package io.sczyh30.sirius.circuitbreaker;
 
 /**
  * Circuit breaker options.

@@ -1,4 +1,4 @@
-package io.sczyh30.sirsus.circuitbreaker.impl;
+package io.sczyh30.sirius.circuitbreaker.impl;
 
 /**
  * Circuit breaker metrics.
