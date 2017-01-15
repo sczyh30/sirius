@@ -1,29 +1,69 @@
-apply plugin: 'java'
+configure(allprojects) { project ->
 
-group 'com.sczyh'
-version '0.1-SNAPSHOT'
+  apply plugin: 'java'
+  apply plugin: 'idea'
 
-ext {
-  assertjVersion = "3.5.2"
-  nettyVersion = "4.1.5.Final"
+  group 'io.sczyh30.sirsus'
+  version '0.1-SNAPSHOT'
+
+  ext {
+    assertjVersion = "3.6.1"
+    nettyVersion = "4.1.6.Final"
+  }
+
+  repositories {
+    jcenter()
+  }
+
+  dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'org.assertj', name: 'assertj-core', version: assertjVersion
+  }
+
+  sourceSets {
+    main {
+      java {
+        srcDirs += 'src/main/generated'
+      }
+    }
+  }
+
+  compileJava {
+    targetCompatibility = 1.8
+    sourceCompatibility = 1.8
+  }
 }
 
-compileJava {
-  targetCompatibility = 1.8
-  sourceCompatibility = 1.8
+project("sirsus-core") {
+  dependencies {
+    compile group: 'io.netty', name: 'netty-all', version: nettyVersion
+  }
 }
 
-repositories {
-  jcenter()
+project("sirsus-web") {
+  dependencies {
+    compile(project(":sirsus-core"))
+  }
 }
 
-dependencies {
-  compile group: 'io.netty', name: 'netty-all', version: nettyVersion
+project("sirsus-rpc") {
+  dependencies {
+    compile(project(":sirsus-core"))
+  }
+}
 
-  testCompile group: 'junit', name: 'junit', version: '4.12'
-  testCompile group: 'org.assertj', name: 'assertj-core', version: assertjVersion
+project("sirsus-service-discovery") {
+  dependencies {
+    compile(project(":sirsus-core"))
+  }
+}
+
+project("sirsus-circuit-breaker") {
+  dependencies {
+    compile(project(":sirsus-core"))
+  }
 }
 
 task wrapper(type: Wrapper) {
-  gradleVersion = '3.1'
+  gradleVersion = '3.2'
 }
